@@ -1,0 +1,37 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    margin: 5px;
+}
+
+#grid {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 300px 500px 500px 500px;
+    grid-template-rows: 65px 1150px;
+}
+
+#header{
+    background-color: rgb(26, 26, 26);
+    grid-column: 1 / -1;
+    grid-row: 1;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+}
+
+#navigator{
+    background-color: rgb(230, 230, 230);
+    grid-column: 1;
+    grid-row: 2;
+    padding: 25px 0 0 40px;
+}
+
+
+.icons{
+    width: 21px;
+    height: 21px;
+    margin-right: 5px;
+}
+
