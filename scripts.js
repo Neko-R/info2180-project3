@@ -9,7 +9,7 @@ function sideDisplay(page){
     var request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200){
-            display.innerHTML = this.responseText;
+            display.innerHTML = this.response;
         }
     };
     request.open("GET", "./"+page+".html", true);
