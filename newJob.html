@@ -1,1 +1,41 @@
-<h1>AJAX TEST FOR NEW JOB</h1>
+
+<form id="form" action="" method="post">
+    <h1>New Job</h1>
+    <div>
+        <label for="jobtitle"> <strong>Job Title</strong> </label> <br>
+        <input type="text" name="jobtitle" placeholder = "e.g. Senior Designer or Product Manager"><br>
+    </div>
+    
+    <div>
+        <label for="jobdescription"> <strong>Job Description</strong> </label><br>
+        <input type="text" name="jobdescription" class = "longdescription" id = "longdescription"><br>
+    </div>
+    
+    <div>
+        <label for="category"> <strong>Category</strong> </label><br>
+        <select name="category" class="pulldownlist" id = "pulldownlist">
+            
+            <option value="" disabled selected>Select a category</option>
+            <option value="Design">Design</option>
+            <option value="Programming">Programming</option>
+            <option value="DevOps & Sysadmin">DevOps & Sysadmin</option>
+            <option value="Customer Support">Customer Support</option>
+            <option value="Sales & Marketing">Sales & Marketing</option>
+            
+          </select><br>
+    </div>
+    
+    <div>
+        <label for="company"> <strong>Company</strong> </label><br>
+        <input type="text" name="company"><br>
+    </div>
+    
+    <div>
+        <label for="joblocation"> <strong>Job Location</strong> </label> <br>
+        <input type="text" name="joblocation" placeholder = "e.g. Kingston, Jamaica"><br>
+    </div>
+    
+    <div>
+        <input type="submit">
+    </div>
+</form>
