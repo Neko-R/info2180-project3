@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
 <html>
     <head>
     <title> HireMe </title>
@@ -7,6 +10,29 @@
     <script src="scripts.js" type="text/javascript"></script>
 </head>
 
-<body id="page"> </body>
+<body>
+    <div id="grid">
+    <div id="header">HireMe</div>
+    <div id = "display">
+        <form id="form" action="./test/login.php" method="post">
+            <?php echo $message; ?>
+            <h1>User Login</h1>
+            <div>
+                <label for="email"> <strong>E-mail</strong> </label><br>
+                <input type="text" name="email" placeholder = "  e.g. mary.jane@example.com"><br>
+            </div>
+        
+            <div>
+                <label for="password"> <strong>Password</strong> </label> <br>
+                <input type="text" name="password"><br>
+            </div>
+        
+            <div>
+                <input name="login" type="submit" value="login">
+            </div>
+        </form>
+        
+    </div>
+</body>
 
 </html>

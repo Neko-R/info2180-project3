@@ -1,15 +1,7 @@
 
 window.onload = function() {
+    //sideDisplay('addUser');
     
-    var page = document.getElementById("page");
-    var startrequest = new XMLHttpRequest();
-    startrequest.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200){
-            page.innerHTML = this.response;
-        }
-    };
-    startrequest.open("GET", "./login.html", true);
-    startrequest.send();
 };
 
 function sideDisplay(page){

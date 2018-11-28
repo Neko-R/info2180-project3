@@ -4,42 +4,44 @@ USE hiremedb;
 
 
 
-DROP TABLE IF EXSISTS 'users';
-CREATE TABLE 'users' (
-    'id'        int primary key not null auto_increment=100,
-    'firstname'     varchar(30) not null,
-    'lastname'      varchar(30) not null,
-    'password'      varchar(32) not null, /*32 characters is the result of an md5 hash*/
-    'telephone'     varchar(12) not null,
-    'email'         varchar(45) not null,
-    'date_joined'   date not null
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+    `id`        int NOT NULL auto_increment,
+    `firstname`     varchar(30) NOT NULL,
+    `lastname`      varchar(30) NOT NULL,
+    `password`      varchar(32) NOT NULL, /*32 characters is the result of an md5 hash*/
+    `telephone`     varchar(12) NOT NULL,
+    `email`         varchar(45) NOT NULL,
+    `date_joined`   date NOT NULL,
+    PRIMARY KEY (`id`)
 );
+ALTER TABLE `users` AUTO_INCREMENT=100;
 
-/*use md5 in php to hash passwords*/
+insert into `users` (firstname, lastname, password, telephone, email, date_joined) 
+    VALUES (`Admin`, `Admin`, MD5('password123'), `Admin`, `Admin`, CURDATE()); 
 
-insert into 'users' (firstname, lastname, password, telephone, email, date_joined) 
-    VALUES ('Admin', 'Admin', <?php echo md5("password123"); ?>, 'Admin', 'Admin', CURDATE());     /*unhashed password: password123*/
-    /*VALUES ('Admin', 'Admin', <?php echo md5("password123"); ?>'482C811DA5D5B4BC6D497FFA98491E38', 'Admin', 'Admin', CURDATE());     /*unhashed password: password123*/
-    
-
-DROP TABLE IF EXSISTS 'jobs';
-CREATE TABLE 'jobs' (
-    'id'            int primary key not null auto_increment=200,
-    'job_title'         varchar(30) not null,
-    'job_description'   varchar(99) not null,
-    'category'          varchar(30) not null,
-    'company_name'      varchar(50) not null,
-    'company_location'  varchar(60) not null,
-    'date_posted'       date not null
+DROP TABLE IF EXISTS `jobs`;
+CREATE TABLE `jobs` (
+    `id`            int NOT NULL auto_increment,
+    `job_title`         varchar(30) NOT NULL,
+    `job_description`   varchar(99) NOT NULL,
+    `category`          varchar(30) NOT NULL,
+    `company_name`      varchar(50) NOT NULL,
+    `company_location`  varchar(60) NOT NULL,
+    `date_posted`       date NOT NULL,
+    PRIMARY KEY (`id`)
 );
+ALTER TABLE `jobs` AUTO_INCREMENT=200;
 
 
 
 
-DROP TABLE IF EXSISTS 'jobs_applied_for';
-CREATE TABLE 'jobs_applied_for' (
-    'id'        int primary key not null auto_increment=300,
-    'job_id'        int(10) not null,
-    'user_id'       int(10) not null,
-    'date_applied'  date not null
+DROP TABLE IF EXISTS `jobs_applied_for`;
+CREATE TABLE `jobs_applied_for` (
+    `id`        int NOT NULL auto_increment,
+    `job_id`        int(10) NOT NULL,
+    `user_id`       int(10) NOT NULL,
+    `date_applied`  date NOT NULL,
+    PRIMARY KEY (`id`)
 );
+ALTER TABLE `jobs_applied_for` AUTO_INCREMENT=300;
