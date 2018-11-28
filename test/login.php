@@ -26,8 +26,9 @@ try {
     $count = $stmt -> rowCount();
     if($count > 0)
     {
-        $_SESSION["email"] = $_POST["email"];
-        header("location: ../dashBoard.html");
+        $user = $stmt->fetch();
+        $_SESSION["id"] = $user["id"];
+        header("location: ../parentPage.php");
                 
     }
     else{

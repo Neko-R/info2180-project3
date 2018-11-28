@@ -62,7 +62,7 @@ try {
     	$date = date("Y-m-d");
         $stmt->execute();
     	echo "New records created successfully";
-        header("location: ../dashBoard.html");
+        header("location: ../parentPage.html");
     }else{
         throw new Exception($error);
     }

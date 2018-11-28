@@ -12,6 +12,6 @@ function sideDisplay(page){
             display.innerHTML = this.response;
         }
     };
-    request.open("GET", "./"+page+".html", true);
+    request.open("GET", "./"+page, true);
     request.send();
 }
