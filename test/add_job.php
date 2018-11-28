@@ -6,7 +6,7 @@ $b = true;
 require_once('connect.php'); #'inclusion' of php file to connect database for use
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO users (job_title, job_description, category, company_name, company_location, date_posted) VALUES (:jobTitle, :jobDes, :category, :companyN, :companyL, :date)");
+$stmt = $conn->prepare("INSERT INTO jobs (job_title, job_description, category, company_name, company_location, date_posted) VALUES (:jobTitle, :jobDes, :category, :companyN, :companyL, :date)");
 
 function trim_value(&$value){
     $value = trim($value);    // this removes whitespace and related characters from the beginning and end of the string
