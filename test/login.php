@@ -1,23 +1,16 @@
 <?php
 session_start();
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "hiremedb";
-$message = " ";
-try
-{
-    
-    $conn = new PDO("mysql:host=$dbServername;dbname=$dbName",$dbUsername,$dbPassword);
-    $conn-> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$message = "";
+
+require_once('connect.php'); #'inclusion' of php file to connect database for use
+
+try {
     
     if(isset($_POST["login"]))
     {
         if(empty($_POST["email"]) || empty($_POST["password"]))
         {
-          echo "Incorrect Username or Password";
-         $message = '<label>All fields are required</label>';   
-            
+          throw new Exception("All fields are required");
         }
         else
         { 
@@ -29,6 +22,7 @@ try
         }
         
     }
+
     $count = $stmt -> rowCount();
     if($count > 0)
     {
@@ -37,13 +31,11 @@ try
                 
     }
     else{
-        echo "Incorrect Username or Password";
-        $message = '<label>Invalid Information</label>';
-        
+        throw new Exception("Incorrect Username or Password");
     }
-    
+
+} catch(Exception $e) {
+    #display message for exception caught
+    $message = sprintf('<lable>%s</lable>', $e->getMessage());
+    echo $message;
 }
-catch(PDOException $e){
-    $message = $e->getMessage();
-}
-?>
