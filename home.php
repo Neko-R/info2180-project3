@@ -1,9 +1,13 @@
-<div id="homeDisplay">
-    <div>
-        <?php echo $_SESSION["id"]?>
-        <h1>Dashboard</h1>
+<?php
+  session_start();
 
-        <input type="button" value="Post a Job" onclick="msg()">
+  if (isset($_SESSION["id"])) { //if you have more session-vars that are needed for login, also check if they are set and refresh them as well
+    $_SESSION["id"] = $_SESSION["id"];
+  }
+?>
+<div id="homeDisplay">
+    <div id="homeTop">
+        <h1>Dashboard</h1> <input type="button" id="post" value="Post a Job" onclick="sideDisplay('newJob.html')">
     </div>
     
     <div>
@@ -21,7 +25,7 @@
         		require_once('./test/connect.php'); #executing of file to connect database for use
         		
         		#retrival of records to be displayed
-        		$result = $conn->prepare("SELECT * FROM jobs ORDER BY id ASC");
+        		$result = $conn->prepare("SELECT * FROM jobs ORDER BY id DESC LIMIT 5");
         		$result->execute();
         		for($i=0; $row = $result->fetch(); $i++){
         	?>
@@ -29,7 +33,7 @@
         		<td><label><?php echo $row['company_name']; ?></label></td>
         		<td><label><?php echo $row['job_title']; ?></label></td>
         		<td><label><?php echo $row['category']; ?></label></td>
-        		<td><label><?php echo $row['date_posted']; ?></label></td>
+        		<td><label><?php echo date('M j, Y', strtotime($row['date_posted'])); ?></label></td>
         	</tr>
         	<?php } ?>
         </table>
@@ -50,7 +54,7 @@
             	require_once('./test/connect.php'); #executing of file to connect database for use
             	
             	#retrival of records to be displayed
-            	$result = $conn->prepare("SELECT J.* FROM jobs J inner join jobs_applied_for JA on J.id = JA.job_id and user_id = :id ORDER BY JA.id ASC");
+            	$result = $conn->prepare("SELECT J.*, JA.date_applied FROM jobs J inner join jobs_applied_for JA on J.id = JA.job_id and user_id = :id ORDER BY JA.id ASC");
             	$result->execute(array(':id' =>  $_SESSION["id"]));
             	for($i=0; $row = $result->fetch(); $i++){
             ?>
@@ -58,7 +62,7 @@
             	<td><label><?php echo $row['company_name']; ?></label></td>
             	<td><label><?php echo $row['job_title']; ?></label></td>
             	<td><label><?php echo $row['category']; ?></label></td>
-            	<td><label><?php echo $row['date']; ?></label></td>
+            	<td><label><?php echo date('M j, Y', strtotime($row['date_applied'])); ?></label></td>
             </tr>
             <?php } ?>
         </table>

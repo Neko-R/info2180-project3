@@ -1,32 +1,29 @@
-<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-<link rel="stylesheet" href="styles.css">
-<script src= "clientValidation.js" type="text/javascript"></script>
 
-<form id="form" action="./test/add_user.php" method="post" onsubmit ="return validateUser()">
+<form id="form" action="./test/add_user.php" method="post" onsubmit ="return validateUser();">
     <h1>New User</h1>
     <div>
         <label for="fname"> <strong>First Name</strong> </label> <br>
-        <input type="text" name="fname" id="fname"><br>
+        <input type="text" name="fname" id="fname" required><br>
     </div>
     
     <div>
         <label for="lname"> <strong>Last name </strong> </label><br>
-        <input type="text" name="lname" id="lname"><br>
+        <input type="text" name="lname" id="lname" required><br>
     </div>
     
     <div>
         <label for="password"> <strong>Password</strong> </label> <br>
-        <input type="password" name="password" id="password"><br>
+        <input type="password" name="password" id="password" placeholder = "At least eight characters long, contain at least one uppercase, one lowercase, one number, and one special character" required><br>
     </div>
     
     <div>
         <label for="email"> <strong>E-mail</strong> </label><br>
-        <input type="text" name="email" placeholder = "  e.g. mary.jane@example.com" id="email"><br>
+        <input type="text" name="email" placeholder = "  e.g. mary.jane@example.com" id="email" required><br>
     </div>
     
     <div>
         <label for="telephone"> <strong>Telephone</strong> </label> <br>
-        <input type="text" name="telephone" placeholder = "  e.g. 876-999-8989" id="telephone"><br>
+        <input type="text" name="telephone" placeholder = "  e.g. 876-999-8989" id="telephone" required><br>
     </div>
     
     <div>

@@ -1,11 +1,11 @@
 <?php
 
-if (isset($_POST['logout'])){
-    session_start();
-    
-    session_unset();
+session_start();
+if (isset($_SESSION['id']))
+{
     session_destroy();
-    header("Location: index.html");
-    exit();
-    
+    header("location:../index.html");
 }
+
+
+?>  

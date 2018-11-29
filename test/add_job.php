@@ -54,13 +54,13 @@ try {
         
         $date = date("Y-m-d");
         $stmt->execute();
-    	echo "New records created successfully";
-        header("location: ../parentPage.html");
+        header("location: ../parentPage.php");
+        echo "New records created successfully";
     }else{
         throw new Exception($error);
     }
 } catch(Exception $e) {
     #display message for exception caught
-    $message = sprintf('<lable>%s</lable>', $e->getMessage());
+    $message = sprintf('<label>%s</label>', $e->getMessage());
     echo $message;
 }

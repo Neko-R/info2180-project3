@@ -18,7 +18,7 @@ CREATE TABLE `users` (
 ALTER TABLE `users` AUTO_INCREMENT=100;
 
 insert into `users` (firstname, lastname, password, telephone, email, date_joined) 
-    VALUES (`Admin`, `Admin`, MD5('password123'), `Admin`, `Admin`, CURDATE()); 
+    VALUES ('Admin', 'Admin', MD5('password123'), 'Admin', 'Admin', CURDATE()); 
 
 DROP TABLE IF EXISTS `jobs`;
 CREATE TABLE `jobs` (

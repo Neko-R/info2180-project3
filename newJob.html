@@ -3,17 +3,17 @@
     <h1>New Job</h1>
     <div>
         <label for="jobtitle"> <strong>Job Title</strong> </label> <br>
-        <input type="text" name="jobtitle" placeholder = "e.g. Senior Designer or Product Manager"><br>
+        <input type="text" name="jobtitle" placeholder = "e.g. Senior Designer or Product Manager" required><br>
     </div>
     
     <div>
         <label for="jobdescription"> <strong>Job Description</strong> </label><br>
-        <input type="text" name="jobdescription" class = "longdescription" id = "longdescription"><br>
+        <input type="text" name="jobdescription" class = "longdescription" id = "longdescription" required><br>
     </div>
     
     <div>
         <label for="category"> <strong>Category</strong> </label><br>
-        <select name="category" class="pulldownlist" id = "pulldownlist">
+        <select name="category" class="pulldownlist" id = "pulldownlist" required>
             
             <option value="" disabled selected>Select a category</option>
             <option value="Design">Design</option>
@@ -27,15 +27,15 @@
     
     <div>
         <label for="company"> <strong>Company Name</strong> </label><br>
-        <input type="text" name="company"><br>
+        <input type="text" name="company" required><br>
     </div>
     
     <div>
         <label for="joblocation"> <strong>Job Location</strong> </label> <br>
-        <input type="text" name="joblocation" placeholder = "e.g. Kingston, Jamaica"><br>
+        <input type="text" name="joblocation" placeholder = "e.g. Kingston, Jamaica" required><br>
     </div>
     
     <div>
-        <input type="submit">
+        <input type="submit" value="Submit">
     </div>
 </form>

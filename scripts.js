@@ -1,9 +1,4 @@
 
-window.onload = function() {
-    //sideDisplay('addUser');
-    
-};
-
 function sideDisplay(page){
     var display = document.getElementById("display");
     var request = new XMLHttpRequest();
@@ -15,3 +10,8 @@ function sideDisplay(page){
     request.open("GET", "./"+page, true);
     request.send();
 }
+
+function logOut(){
+window.open('../test/logout.php','_top');
+}
+
