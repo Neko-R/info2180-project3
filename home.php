@@ -12,7 +12,7 @@
     
     <div>
         <h4>Available Jobs</h4>
-        <table>
+        <table id = "jobdetails">
             <tr>
                 <th>Company</th>
                 <th>Job Title</th>
@@ -29,9 +29,9 @@
         		$result->execute();
         		for($i=0; $row = $result->fetch(); $i++){
         	?>
-        	<tr>
+        	<tr id="job-row">
         		<td><label><?php echo $row['company_name']; ?></label></td>
-        		<td><label><?php echo $row['job_title']; ?></label></td>
+        		<td id="job_select" onclick="getJob(event)"><label><?php echo $row['job_title'];?></label></td>
         		<td><label><?php echo $row['category']; ?></label></td>
         		<td><label><?php echo date('M j, Y', strtotime($row['date_posted'])); ?></label></td>
         	</tr>
@@ -60,7 +60,7 @@
             ?>
             <tr>
             	<td><label><?php echo $row['company_name']; ?></label></td>
-            	<td><label><?php echo $row['job_title']; ?></label></td>
+            	<td id ="job_select" onclick="getJob(event)"><label><?php echo $row['job_title']; ?></label></td>
             	<td><label><?php echo $row['category']; ?></label></td>
             	<td><label><?php echo date('M j, Y', strtotime($row['date_applied'])); ?></label></td>
             </tr>

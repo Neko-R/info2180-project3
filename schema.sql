@@ -34,8 +34,6 @@ CREATE TABLE `jobs` (
 ALTER TABLE `jobs` AUTO_INCREMENT=200;
 
 
-
-
 DROP TABLE IF EXISTS `jobs_applied_for`;
 CREATE TABLE `jobs_applied_for` (
     `id`        int NOT NULL auto_increment,

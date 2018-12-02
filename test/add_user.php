@@ -62,12 +62,12 @@ try {
     	$date = date("Y-m-d");
         $stmt->execute();
     	echo "New records created successfully";
-        header("location: ../parentPage.html");
+        header("location: ../parentPage.php");
     }else{
         throw new Exception($error);
     }
 } catch(Exception $e) {
     #display message for exception caught
-    $message = sprintf('<lable>%s</lable>', $e->getMessage());
+    $message = sprintf('%s', $e->getMessage());
     echo $message;
 }
