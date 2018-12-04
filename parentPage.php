@@ -20,7 +20,7 @@
            </div>
         
             <div id="display">
-                
+                <?php include_once('home.php'); ?>
             </div>
         </div>        
     </body>
