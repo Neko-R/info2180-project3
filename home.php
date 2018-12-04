@@ -24,16 +24,21 @@
             <?php
         		require_once('./test/connect.php'); #executing of file to connect database for use
         		
+        		$curDate=strtotime(date('M j, Y'));
+        		
         		#retrival of records to be displayed
         		$result = $conn->prepare("SELECT * FROM jobs ORDER BY id DESC LIMIT 5");
         		$result->execute();
         		for($i=0; $row = $result->fetch(); $i++){
+        		    $datePosted = strtotime($row['date_posted']);
+        		    $diff = $curDate - $datePosted;
+        		    $period = floor($diff/(60*60*24));
         	?>
         	<tr id="job-row">
         		<td><label><?php echo $row['company_name']; ?></label></td>
         		<td id="job_select" onclick="getJob(event)"><label><?php echo $row['job_title'];?></label></td>
         		<td><label><?php echo $row['category']; ?></label></td>
-        		<td><label><?php echo date('M j, Y', strtotime($row['date_posted'])); ?></label></td>
+        		<td><label><?php echo date('M j, Y', strtotime($row['date_posted']));  ?></label><label><?php if($period <= 1){echo " <div class='new_tag'>New</div>"; }?></label></td>
         	</tr>
         	<?php } ?>
         </table>

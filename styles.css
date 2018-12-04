@@ -150,12 +150,12 @@ th,td {
     width: 210px;
     height: 50px;
 }
+#apply {
+    margin: 15px 0 0 500px;
+}
 
 #post{
     margin: 15px 0 0 800px;
-}
-#apply {
-    margin: 15px 0 0 650px;
 }
 
 #post,#apply:hover {
@@ -180,3 +180,20 @@ p1{
     cursor: pointer;
     color:#6699ff;
 }
+
+
+.new_tag  {
+    display:inline-block;
+    border-radius: 5px;
+    background-color: yellow;
+    padding-bottom: 5px !important;
+    padding-top: 5px !important;
+    padding-left: 5px !important;
+    padding-right: 5px!important;
+    margin-left: 40px;
+    font-weight: bold;
+    
+}
+
+
+
